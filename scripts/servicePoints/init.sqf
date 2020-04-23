@@ -265,7 +265,7 @@ while {true} do {
 			_lastVehicle = _vehicle;
 			_lastRole = _role;
 			if ((SP_refuel_action < 0) && {_refuel_enable} && (_refuelPoints > 0)) then {
-				_costs = round (([_vehicle,_refuel_costs] call _fnc_getCosts) * (1.0 - fuel _vehicle));
+				_costs = [_vehicle,_refuel_costs] call _fnc_getCosts;
 				_actionTitle = [localize "config_depot.sqf8",_costs] call _fnc_actionTitle;
 				SP_refuel_action = _vehicle addAction [_actionTitle,_folder + "servicePointActions.sqf",["refuel",_costs,_refuel_updateInterval,_refuel_amount],-1,false,true];
 			};
